@@ -13,7 +13,7 @@ const classDinamic = computed(() => {
 </script>
 
 <template>
-  <button class="border-8 rounded-full h-32 w-32" :class="classDinamic">
+  <button class="border-8 rounded-full h-32 w-32 bg-slate-100" :class="classDinamic">
     <IconPaper v-if="text === 'paper'" class="w-[50px] mx-auto" />
     <IconRock v-if="text === 'rock'" class="w-[50px] mx-auto" />
     <IconScissors v-if="text === 'scissors'" class="w-[50px] mx-auto rotate-90" />
