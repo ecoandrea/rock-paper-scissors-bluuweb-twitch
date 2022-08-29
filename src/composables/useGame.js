@@ -8,9 +8,9 @@ const userOption = ref("");
 const botOption = ref("");
 
 const result = ref("");
-const totalwins = ref(0);
-const totallost = ref(0);
-const totaldraw = ref(0);
+const totalwins = ref(localStorage.getItem("totalwins") || 0);
+const totallost = ref(localStorage.getItem("totallost") || 0);
+const totaldraw = ref(localStorage.getItem("totaldraw") || 0);
 
 export const useGame = () => {
   // Opción 1: jomersgamer
@@ -29,14 +29,17 @@ export const useGame = () => {
     switch (res) {
       case "win":
         totalwins.value++;
+        localStorage.setItem("totalwins", totalwins.value);
         jsConfetti.addConfetti();
 
         break;
       case "draw":
         totaldraw.value++;
+        localStorage.setItem("totaldraw", totaldraw.value);
         break;
       case "lose":
         totallost.value++;
+        localStorage.setItem("totallost", totallost.value);
         break;
     }
     result.value = res;
